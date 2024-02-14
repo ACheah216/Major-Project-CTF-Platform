@@ -5,7 +5,7 @@ CTF platform for Major Project.
 
 ## Instructions:
 ### Running on docker
-To pull image from my repo, run and map:
+To pull image from repo, run and map:
 ```bash
 docker pull x8v13r/ycep-mp-ctf-platform:latest
 docker run -p 8080:80 x8v13r/ycep-mp-ctf-platform:latest
