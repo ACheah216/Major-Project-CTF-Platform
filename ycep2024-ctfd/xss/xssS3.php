@@ -9,10 +9,12 @@ require_once '../utils/utils.php'
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>.mono{
-            font-family: "Courier New", monospace;
-            font-weight: 700;
-        }</style>
+        <style>
+            .mono{
+                font-family: "Courier New", monospace;
+                font-weight: 700;
+            }
+        </style>
         <title>Answer a question</title>
     </head>
     <body>
@@ -36,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     /* check for risky tags that are NOT script 
      * does so case-insensitively
      * 
+     * DO NOTE THAT THIS LIST IS NON-EXHAUSTIVE
      * see
      * https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
      * for more
@@ -50,53 +53,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          */
 
 #       <SVG/ONLOAD=[action]
-        '/<SVG\/ONLOAD=/i',
+        '/<SVG\/ONLOAD=.+>/i',
+
 #       <BODY ONLOAD=[action]
-        '/<BODY ONLOAD=/i',
+        '/<BODY ONLOAD=.+>/i',
+
 #       <IMG SRC="javascript: [action]
-        '/<IMG SRC="javascript:/i',
+        '/<IMG SRC="javascript:.+>/i',
+
 #       <IFRAME SRC="javascript: [action]
-        '/<IFRAME SRC="javascript:/i', 
+        '/<IFRAME SRC="javascript:.+><\/IFRAME>/i', 
+
 #       <BGSOUND SRC="javascript: [action]
-        '/<BGSOUND SRC="javascript:/i', 
+        '/<BGSOUND SRC="javascript:.+>/i', 
+
 #       <FRAMESET><FRAME SRC="javascript: [action]
-        '/<FRAMESET><FRAME SRC="javascript:/i', 
+        '/<FRAMESET><FRAME SRC="javascript:.+>/i', 
+
 #       <TABLE BACKGROUND="javascript: [action]
-        '/<TABLE BACKGROUND="javascript:/i', 
+        '/<TABLE BACKGROUND="javascript:.+>/i', 
+
 #       <TABLE><TD BACKGROUND="javascript: [action]
-        '/<TABLE><TD BACKGROUND="javascript:/i', 
+        '/<TABLE><TD BACKGROUND="javascript:.+>/i', 
+
 #       <DIV STYLE="background-image: url(javascript: [action]
-        '/<DIV STYLE="background-image: url\(javascript:/i', 
+        '/<DIV STYLE="background-image: url\(javascript:.+\)>/i', 
+
 #       <LINK REL="stylesheet" HREF="javascript:[action]
-        '/<LINK REL="stylesheet" HREF="javascript:/i',
+        '/<LINK REL="stylesheet" HREF="javascript:.+>/i',
+
 #       <IMG DYNSRC="javascript: [action]
-        '/<IMG DYNSRC="javascript:/i',
+        '/<IMG DYNSRC="javascript:.+>/i',
+
 #        <IMG LOWSRC="javascript: [action]
-        '/<IMG LOWSRC="javascript:/i',
+        '/<IMG LOWSRC="javascript:+>/i',
+
 #       <META HTTP-EQUIV="refresh" CONTENT="0;url=javascript: [action]
-        '/<META HTTP-EQUIV="refresh" CONTENT="0;url=javascript:/i',
+        '/<META HTTP-EQUIV="refresh" CONTENT="0;url=javascript:.+>/i',
+
 #       <DIV STYLE="width: expression([action]
-        '/<DIV STYLE="width: expression\(/i',
+        '/<DIV STYLE="width: expression\(.+\)>/i',
+
 #       <BASE HREF="javascript:[action]
-        '/<BASE HREF="javascript:/i',
+        '/<BASE HREF="javascript:.+>/i',
+
 #       <BODY BACKGROUND="javascript:[action]
-        '/<BODY BACKGROUND="javascript:/i'
+        '/<BODY BACKGROUND="javascript:.+>/i'
     );
     
     // if $ans has any of these risky tags
     if (checkregex($regex_arr, $ans)){
         $flag = "YCEP2024-X55L3N8UY"; 
-        ?><script>
+        ?>
+        <script>
             alert('Congratulations! This is your flag: <?= $flag?>'); 
             window.location.href = 'xssS3.php';
-        </script><?php
+        </script>
+        <?php
     }else{
-        $ans=htmlspecialchars($ans);?>
+        $ans=htmlspecialchars($ans);
+        ?>
         Your answer is: <span class="mono"><?= $ans?></span>
-        <script>console.log(`
-            Did not expect to see this?
-            Try alternative inputs that can run js.
-        `);</script><?php
+        <script>
+            console.log(`
+                Did not expect to see this?
+                Try alternative inputs that can run js.
+            `);
+        </script>
+        <?php
     }
 }
-
