@@ -67,9 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         '/\(/'   , /* ( */
         '/\)/'   , /* ) */
         '/\{/'   , /* { */
-        '/\}/'   , /* ) */
-        '/\[/'   , /* ) */
-        '/\]/'   , /* ) */
+        '/\}/'   , /* } */
+        '/\[/'   , /* [ */
+        '/\]/'   , /* ] */
     );
     if (checkregex($regex_arr, $userID)){
         $hint_str = 'You might have entered a blacklisted symbol. Try again.';
