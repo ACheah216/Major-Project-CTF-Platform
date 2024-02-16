@@ -1,0 +1,142 @@
+/* INDEX CSS! */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    }
+
+header {
+    font-size: 25px;
+    font-weight: 500;
+    background-image: conic-gradient(#553c9a 35%, #ee4b2b 30%, #ee4b2b 10%, #00c2cb 30%, #553c9a);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+nav {
+    background-color: #555;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 15px;
+}
+
+.search-bar {
+    text-align: center;
+    margin: 20px 0;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+}
+
+/* MCQS CSS! */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    font-size: 25px;
+    font-weight: 500;
+    background-image: conic-gradient(#553c9a 35%, #ee4b2b 30%, #ee4b2b 10%, #00c2cb 30%, #553c9a);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+nav {
+    background-color: #555;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 15px;
+}
+
+.question-container {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.options {
+    margin-top: 10px;
+}
+
+.option {
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    background-color: #4285F4;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 25px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: green;
+}
+
+.result-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid skyblue; /* Border color */
+    background-color: #ecf0f1; /* Background color */
+    border-radius: 30px;
+}
+
+.result-container p {
+    font-weight: bold;
+    font-size: 20px;
+    color: #3498db; /* Text color */
+}
+
+.flag-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid skyblue; /* Border color */
+    background-color: #ecf0f1; /* Background color */
+    border-radius: 30px;
+}
+
+.flag-container p {
+    font-weight: bold;
+    font-size: 20px;
+    color: #3498db; /* Text color */
+}
