@@ -18,7 +18,7 @@ On host, go to web browser, type ```localhost:8080``` to access the web service 
 ```bash
 docker ps
 
-# Replace with b777ad0de656 with actual container id obtained from docker ps
+# Replace b777ad0de656 with actual container id obtained from docker ps
 docker exec -it b777ad0de656 /bin/bash
 ```
 
