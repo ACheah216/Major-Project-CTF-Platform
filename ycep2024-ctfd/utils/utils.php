@@ -1,5 +1,4 @@
 <?php
-<?php
 function checkregex($regex_arr, $str, $count = 0){
     /* checks array of regexes 
 
